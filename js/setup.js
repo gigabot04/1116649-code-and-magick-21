@@ -36,7 +36,7 @@ const renderWizard = (wizard) => {
 };
 
 let fragment = document.createDocumentFragment();
-for (let i = 0; i < 4; i++) {
+for (let i = 0; i < wizards.length; i++) {
   fragment.appendChild(renderWizard(wizards[i]));
 }
 similarListElement.appendChild(fragment);
