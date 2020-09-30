@@ -1,6 +1,5 @@
 'use strict';
 
-document.querySelector(`.setup`).classList.remove(`hidden`);
 const firstNames = [`Иван`, `Хуан Себастьян`, `Мария`, `Кристоф`, `Виктор`, `Юлия`, `Люпита`, `Вашингтон`];
 const secondNames = [`да Марья`, `Верон`, `Мирабелла`, `Вальц`, `Онопко`, `Топольницкая`, `Нионго`, `Ирвинг`];
 const coatColorWizard = [`rgb(101, 137, 164)`, `rgb(241, 43, 107)`, `rgb(146, 100, 161)`, `rgb(56, 159, 117)`, `rgb(215, 210, 55)`, `rgb(0, 0, 0)`];
@@ -47,3 +46,49 @@ for (let i = 0; i < wizards.length; i++) {
 similarListElement.appendChild(fragment);
 
 document.querySelector(`.setup-similar`).classList.remove(`hidden`);
+
+
+// Открытие и закрытие формы
+
+const setup = document.querySelector(`.setup`);
+const setupOpen = document.querySelector(`.setup-open`);
+const setupClose = document.querySelector(`.setup-close`);
+
+const onPopupEscPress = (evt) => {
+  if (evt.key === `Escape`) {
+    evt.preventDefault();
+    setup.classList.add(`hidden`);
+  }
+};
+
+const openPopup = () => {
+  setup.classList.remove(`hidden`);
+
+  document.addEventListener(`keydown`, onPopupEscPress);
+};
+
+const closePopup = () => {
+  setup.classList.add(`hidden`);
+
+  document.removeEventListener(`keydown`, onPopupEscPress);
+};
+
+setupOpen.addEventListener(`click`, () => {
+  openPopup();
+});
+
+setupOpen.addEventListener(`keydown`, function (evt) {
+  if (evt.key === `Enter`) {
+    openPopup();
+  }
+});
+
+setupClose.addEventListener(`click`, () => {
+  closePopup();
+});
+
+setupClose.addEventListener(`keydown`, function (evt) {
+  if (evt.key === `Enter`) {
+    closePopup();
+  }
+});
