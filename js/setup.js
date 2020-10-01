@@ -53,6 +53,15 @@ document.querySelector(`.setup-similar`).classList.remove(`hidden`);
 const setup = document.querySelector(`.setup`);
 const setupOpen = document.querySelector(`.setup-open`);
 const setupClose = document.querySelector(`.setup-close`);
+const setupUserName = document.querySelector(`.setup-user-name`);
+
+setupUserName.addEventListener(`focus`, () => {
+  document.removeEventListener(`keydown`, onPopupEscPress);
+});
+
+setupUserName.addEventListener(`blur`, () => {
+  document.addEventListener(`keydown`, onPopupEscPress);
+});
 
 const onPopupEscPress = (evt) => {
   if (evt.key === `Escape`) {
@@ -93,48 +102,50 @@ setupClose.addEventListener(`keydown`, function (evt) {
   }
 });
 
+
+const сoatFireballClick = document.querySelector(`.setup-fireball-wrap`);
+const inputCoatColor = document.querySelector(`input[name="coat-color"]`);
+const inputEyeColor = document.querySelector(`input[name="eyes-color"]`);
+const inputFireballColor = сoatFireballClick.querySelector(`input[name="fireball-color"]`);
+
 // Изменение цвета мантии
 
-
-const onCoatColorClick = document.querySelector(`.wizard-coat`);
+const сoatColorClick = document.querySelector(`.wizard-coat`);
 let setupCoatColors = [`rgb(101, 137, 164)`, `rgb(241, 43, 107)`, `rgb(146, 100, 161)`, `rgb(56, 159, 117)`, `rgb(215, 210, 55)`, `rgb(0, 0, 0)`];
 
-onCoatColorClick.addEventListener(`click`, () => {
-  let inputCoatColor = document.querySelector(`input[name="coat-color"]`);
+const setupColorDel = (arr) => {
+  return arr.splice(randNum(arr), 1).pop();
+};
+
+сoatColorClick.addEventListener(`click`, () => {
   if (setupCoatColors[0] && !setupCoatColors[1]) {
     setupCoatColors = [`rgb(101, 137, 164)`, `rgb(241, 43, 107)`, `rgb(146, 100, 161)`, `rgb(56, 159, 117)`, `rgb(215, 210, 55)`, `rgb(0, 0, 0)`];
   }
-  const setupCoatColorDel = setupCoatColors.splice(randNum(setupCoatColors), 1).pop();
-  onCoatColorClick.style.fill = setupCoatColorDel;
-  inputCoatColor.value = setupCoatColorDel;
+  сoatColorClick.style.fill = setupColorDel(setupCoatColors);
+  inputCoatColor.value = setupColorDel(setupCoatColors);
 });
 
 // Изменение цвета глаз
 
-const onCoatEyeClick = document.querySelector(`.wizard-eyes`);
+const сoatEyeClick = document.querySelector(`.wizard-eyes`);
 let setupEyeColors = [`black`, `red`, `blue`, `yellow`, `green`];
 
-onCoatEyeClick.addEventListener(`click`, () => {
-  let inputEyeColor = document.querySelector(`input[name="eyes-color"]`);
+сoatEyeClick.addEventListener(`click`, () => {
   if (setupEyeColors[0] && !setupEyeColors[1]) {
     setupEyeColors = [`black`, `red`, `blue`, `yellow`, `green`];
   }
-  const setupEyeColorDel = setupEyeColors.splice(randNum(setupEyeColors), 1).pop();
-  onCoatEyeClick.style.fill = setupEyeColorDel;
-  inputEyeColor.value = setupEyeColorDel;
+  сoatEyeClick.style.fill = setupColorDel(setupEyeColors);
+  inputEyeColor.value = setupColorDel(setupEyeColors);
 });
 
 // Изменение цвета фаербола
 
-const onCoatFireballClick = document.querySelector(`.setup-fireball-wrap`);
 let setupFireballColors = [`#ee4830`, `#30a8ee`, `#5ce6c0`, `#e848d5`, `#e6e848`];
 
-onCoatFireballClick.addEventListener(`click`, () => {
-  let inputFireballColor = onCoatFireballClick.querySelector(`input[name="fireball-color"]`);
+сoatFireballClick.addEventListener(`click`, () => {
   if (setupFireballColors[0] && !setupFireballColors[1]) {
     setupFireballColors = [`#ee4830`, `#30a8ee`, `#5ce6c0`, `#e848d5`, `#e6e848`];
   }
-  const setupFireballColorDel = setupFireballColors.splice(randNum(setupFireballColors), 1).pop();
-  onCoatFireballClick.style.backgroundColor = setupFireballColorDel;
-  inputFireballColor.value = setupFireballColorDel;
+  сoatFireballClick.style.backgroundColor = setupColorDel(setupFireballColors);
+  inputFireballColor.value = setupColorDel(setupFireballColors);
 });
