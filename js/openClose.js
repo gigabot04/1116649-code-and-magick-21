@@ -1,7 +1,7 @@
 'use strict';
 
 (function () {
-  const setup = document.querySelector(`.setup`);
+  window.setup = document.querySelector(`.setup`);
   const setupOpen = document.querySelector(`.setup-open`);
   const setupClose = document.querySelector(`.setup-close`);
   const setupUserName = document.querySelector(`.setup-user-name`);
@@ -17,18 +17,18 @@
   const onPopupEscPress = (evt) => {
     if (evt.key === `Escape`) {
       evt.preventDefault();
-      setup.classList.add(`hidden`);
+      window.setup.classList.add(`hidden`);
     }
   };
 
   const openPopup = () => {
-    setup.classList.remove(`hidden`);
+    window.setup.classList.remove(`hidden`);
 
     document.addEventListener(`keydown`, onPopupEscPress);
   };
 
   const closePopup = () => {
-    setup.classList.add(`hidden`);
+    window.setup.classList.add(`hidden`);
 
     document.removeEventListener(`keydown`, onPopupEscPress);
   };
