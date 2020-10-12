@@ -28,8 +28,8 @@
 
       dragged = true;
 
-      window.setup.style.top = (window.setup.offsetTop - shift.y) + `px`;
-      window.setup.style.left = (window.setup.offsetLeft - shift.x) + `px`;
+      window.setup.style.top = `${window.setup.offsetTop - shift.y}px`;
+      window.setup.style.left = `${window.setup.offsetLeft - shift.x}px`;
     };
 
     const onMouseUp = (upEvt) => {

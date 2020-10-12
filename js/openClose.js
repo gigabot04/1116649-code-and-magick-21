@@ -24,6 +24,9 @@
   const openPopup = () => {
     window.setup.classList.remove(`hidden`);
 
+    window.setup.style.top = `80px`;
+    window.setup.style.left = `50%`;
+
     document.addEventListener(`keydown`, onPopupEscPress);
   };
 
