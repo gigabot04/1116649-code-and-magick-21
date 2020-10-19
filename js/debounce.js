@@ -1,7 +1,7 @@
 'use strict';
 
 {
-  const DEBOUNCE_INTERVAL = 300; // ms
+  const DEBOUNCE_INTERVAL = 500; // ms
 
   let lastTimeout;
   const timeout = (cb) => {
