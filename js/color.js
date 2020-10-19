@@ -22,7 +22,7 @@
     const randNum = setupColorDel(setupCoatColors);
     сoatColorClick.style.fill = randNum;
     inputCoatColor.value = randNum;
-    window.otherWizards.coatColor = randNum;
+    window.coatColor = randNum;
     window.otherWizards.updateWizards();
   });
 
@@ -38,7 +38,7 @@
     const randNum = setupColorDel(setupEyeColors);
     сoatEyeClick.style.fill = randNum;
     inputEyeColor.value = randNum;
-    window.otherWizards.eyesColor = randNum;
+    window.eyesColor = randNum;
     window.otherWizards.updateWizards();
   });
 
