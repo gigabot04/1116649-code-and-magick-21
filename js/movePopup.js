@@ -3,7 +3,7 @@
 (function () {
   const dialogMove = document.querySelector(`.upload`);
 
-  dialogMove.addEventListener(`mousedown`, function (evt) {
+  dialogMove.addEventListener(`mousedown`, (evt) => {
     evt.preventDefault();
 
     let startCoords = {

@@ -1,6 +1,6 @@
 'use strict';
 
-(function () {
+{
   const сoatFireballClick = document.querySelector(`.setup-fireball-wrap`);
   const inputCoatColor = document.querySelector(`input[name="coat-color"]`);
   const inputEyeColor = document.querySelector(`input[name="eyes-color"]`);
@@ -22,6 +22,8 @@
     const randNum = setupColorDel(setupCoatColors);
     сoatColorClick.style.fill = randNum;
     inputCoatColor.value = randNum;
+    window.coatColor = randNum;
+    window.helpersModule.debounce(window.otherWizards.updateWizards);
   });
 
   // Изменение цвета глаз
@@ -36,6 +38,8 @@
     const randNum = setupColorDel(setupEyeColors);
     сoatEyeClick.style.fill = randNum;
     inputEyeColor.value = randNum;
+    window.eyesColor = randNum;
+    window.helpersModule.debounce(window.otherWizards.updateWizards);
   });
 
   // Изменение цвета фаербола
@@ -51,4 +55,4 @@
     inputFireballColor.value = randNum;
   });
 
-})();
+}
