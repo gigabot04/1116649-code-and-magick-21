@@ -31,23 +31,15 @@
     return rank;
   };
 
-  const namesComparator = (left, right) => {
-    if (left > right) {
-      return 1;
-    } else if (left < right) {
-      return -1;
-    } else {
-      return 0;
-    }
-  };
-
   const updateWizards = () => {
 
     createWizards(wizards.sort((left, right) => {
       let rankDiff = getRank(right) - getRank(left);
+
       if (rankDiff === 0) {
-        rankDiff = namesComparator(left.name, right.name);
+        rankDiff = left.name.localeCompare(right.name);
       }
+
       return rankDiff;
     }));
 

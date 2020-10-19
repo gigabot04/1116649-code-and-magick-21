@@ -23,7 +23,7 @@
     сoatColorClick.style.fill = randNum;
     inputCoatColor.value = randNum;
     window.coatColor = randNum;
-    window.debounce.timeout(window.otherWizards.updateWizards);
+    window.helpersModule.debounce(window.otherWizards.updateWizards);
   });
 
   // Изменение цвета глаз
@@ -39,7 +39,7 @@
     сoatEyeClick.style.fill = randNum;
     inputEyeColor.value = randNum;
     window.eyesColor = randNum;
-    window.debounce.timeout(window.otherWizards.updateWizards);
+    window.helpersModule.debounce(window.otherWizards.updateWizards);
   });
 
   // Изменение цвета фаербола
