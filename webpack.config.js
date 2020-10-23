@@ -9,6 +9,8 @@ module.exports = {
     "./js/color.js",
     "./js/movePopup.js",
     "./js/stat.js",
+    "./js/settings.js",
+    "./js/game.js"
   ],
   output: {
     filename: "bundle.js",
